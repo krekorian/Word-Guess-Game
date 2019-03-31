@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body onload="startUp()">
     <header>
         <img src="assets/images/header.jpg">
     </header>
@@ -25,14 +25,16 @@
 
                     </div>
                     <div class="col-md-3 inside-container">
-
-
+                        <h3>Press any key to start guessing</h3>
+                        <p id="guess-letters"></p>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+    <!-- Javascript link-->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
 </html>

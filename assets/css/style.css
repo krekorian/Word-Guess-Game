@@ -24,3 +24,30 @@ header {
     margin: 0px;
     padding: 0px;
 }
+
+h3 {
+    color: white;
+}
+
+.guess-field {
+    display: inline inline-block;
+}
+
+.letter {
+    display: inline-block;
+    list-style: none;
+    width: 20px;
+    margin: 0 5px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    color: white;
+}
+
+.current-word {
+    list-style: none;
+    color: white;
+}
+
+p {
+    color: white;
+}
