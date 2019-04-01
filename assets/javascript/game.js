@@ -10,7 +10,7 @@ var winCount = 0;
 var loseCount = 0;
 var correctLetter = 0;
 
-//Initial content to view
+//Initial content to view and fresh attempt view
 function startUp() {
     for (var i = 0; i < currentWord.length; i++) {
         answerArray[i] = "_";
@@ -45,6 +45,9 @@ function checking(inputLetter) {
     if (correctLetter == currentWord.length) {
         document.getElementById("missed-guess").innerHTML = "You win";
         var path = "assets/images/" + currentWord + ".jpg";
+        const sound = new Audio();
+        sound.src = "assets/audio/" + currentWord + ".mp3"
+        sound.play()
         image = document.getElementById("guess-image");
         image.src = path;
         guessCount = 0;
