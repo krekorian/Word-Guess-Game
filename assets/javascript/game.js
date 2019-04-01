@@ -18,6 +18,10 @@ function startUp() {
     }
     guessInput = answerArray.join(" ");
     document.getElementById("guess-letters").innerHTML = guessInput;
+    document.getElementById("letter-output").innerHTML = "Letter used";
+    document.getElementById("missed-guess").innerHTML = "Number of guesses left: " + (5 - guessCount);
+    document.getElementById("win-count").innerHTML = "Number of wins " + winCount;
+    document.getElementById("lose-count").innerHTML = "Number of loss " + loseCount;
 }
 
 //verification part
