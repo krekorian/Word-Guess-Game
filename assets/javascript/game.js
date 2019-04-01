@@ -43,7 +43,7 @@ function checking(inputLetter) {
         //var image = document.createElement("img");
 
         var path = "assets/images/" + currentWord + ".jpg"
-        document.getElementById("lose-count").innerHTML = path;
+        //document.getElementById("lose-count").innerHTML = path;
         image = document.getElementById("guess-image");
         image.src = path;
 
@@ -51,7 +51,10 @@ function checking(inputLetter) {
         correctLetter = 0;
         incorrectLetter = "";
         answerArray = [];
+        winCount++;
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
+        document.getElementById("win-count").innerHTML = "Number of wins " + winCount;
+        document.getElementById("lose-count").innerHTML = "Number of loss " + loseCount;
         currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
         startUp();
     }
@@ -62,7 +65,10 @@ function checking(inputLetter) {
         correctLetter = 0;
         incorrectLetter = "";
         answerArray = [];
+        loseCount++;
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
+        document.getElementById("win-count").innerHTML = "Number of wins " + winCount;
+        document.getElementById("lose-count").innerHTML = "Number of loss " + loseCount;
         currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
         startUp();
     }
@@ -70,6 +76,8 @@ function checking(inputLetter) {
     guessInput = answerArray.join(" ");
     document.getElementById("guess-letters").innerHTML = guessInput;
     document.getElementById("missed-guess").innerHTML = "Number of guesses left: " + (5 - guessCount);
+    document.getElementById("win-count").innerHTML = "Number of wins " + winCount;
+    document.getElementById("lose-count").innerHTML = "Number of loss " + loseCount;
 
 
 
