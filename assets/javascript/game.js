@@ -56,6 +56,7 @@ function checking(inputLetter) {
     guessInput = answerArray.join(" ");
     document.getElementById("guess-letters").innerHTML = guessInput;
     document.getElementById("missed-guess").innerHTML = "Number of guesses left: " + (5 - guessCount);
+
     if (guessCount > 5) {
         document.getElementById("missed-guess").innerHTML = "You Lose, try another puzzle";
         guessCount = 0;
