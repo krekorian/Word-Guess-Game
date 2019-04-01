@@ -1,13 +1,4 @@
-//var guessInput = document.getElementById("guess-letters");
-//guessInput.innerHTML = '<li class="current-word">Current word:</li>';
-//var guessInput;
-//document.getElementById("letter").value = '';
-/*var letter, i;
-for (i = 0; i < currentWord.length; i++) {
-    letter = '<li class="letter letter' + currentWord.charAt(i).toUpperCase() + '">' + currentWord.charAt(i).toUpperCase() + '</li>';
-    guessInput.insertAdjacentHTML('beforeend', letter);
-}
-*/
+
 // setting the default values
 var wordLibrary = ["MADONNA", "STING", "EMINEM", "RIHANNA", "SHAKIRA", "ADELE", "CHER", "SCORPIONS", "FERGIE"]
 var currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
@@ -40,7 +31,7 @@ function checking(inputLetter) {
             correctLetter++;
         }
     }
-    document.getElementById("win-count").innerHTML = correctLetter;
+    //document.getElementById("win-count").innerHTML = correctLetter;
     if (letterfound == false) {
         incorrectLetter = incorrectLetter + " " + letter;
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
