@@ -1,9 +1,6 @@
 //var guessInput = document.getElementById("guess-letters");
 //guessInput.innerHTML = '<li class="current-word">Current word:</li>';
-
-currentWord = "vartan krekorian"
-answerArray = [];
-var guessInput;
+//var guessInput;
 //document.getElementById("letter").value = '';
 /*var letter, i;
 for (i = 0; i < currentWord.length; i++) {
@@ -11,11 +8,75 @@ for (i = 0; i < currentWord.length; i++) {
     guessInput.insertAdjacentHTML('beforeend', letter);
 }
 */
+// setting the default values
+var wordLibrary = ["MADONNA", "STING", "EMINEM", "RIHANNA", "SHAKIRA", "ADELE", "CHER", "SCORPIONS", "FERGIE"]
+var currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
+//currentWord = "VARTAN"
+var answerArray = [];
+var guessCount = 0;
+var guessInput;
+var incorrectLetter = "";
+var winCount = 0;
+var loseCount = 0;
+var correctLetter = 0;
+
+//Initial content to view
 function startUp() {
     for (var i = 0; i < currentWord.length; i++) {
         answerArray[i] = "_";
     }
-    guessInput = answerArray.join();
+    guessInput = answerArray.join(" ");
     document.getElementById("guess-letters").innerHTML = guessInput;
 }
 
+//verification part
+function checking(inputLetter) {
+    var letterfound = false;
+    letter = inputLetter.toUpperCase();
+    for (var j = 0; j < currentWord.length; j++) {
+        if (currentWord[j] === letter) {
+            answerArray[j] = letter;
+            letterfound = true;
+            correctLetter++;
+        }
+    }
+    document.getElementById("win-count").innerHTML = correctLetter;
+    if (letterfound == false) {
+        incorrectLetter = incorrectLetter + " " + letter;
+        document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
+        guessCount++;
+    }
+
+    if (correctLetter == currentWord.length) {
+        document.getElementById("missed-guess").innerHTML = "You win";
+        var image = document.createElement("img");
+
+        var path = "assets/images/" + currentWord + ".jpg"
+        document.getElementById("lose-count").innerHTML = path;
+        image.src = path;
+        document.getElementById("guess-image").appendChild(image);
+        guessCount = 0;
+        correctLetter = 0;
+        incorrectLetter = "";
+        document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
+        startUp();
+    }
+
+    guessInput = answerArray.join(" ");
+    document.getElementById("guess-letters").innerHTML = guessInput;
+    document.getElementById("missed-guess").innerHTML = "Number of guesses left: " + (5 - guessCount);
+
+
+
+}
+
+// Getting input fro keyboard
+document.onkeyup = function (event) {
+
+    var userinput = event.key;
+    //winnerText.textContent = "userinput";
+    userinput.toUpperCase;
+
+    checking(userinput);
+
+};
