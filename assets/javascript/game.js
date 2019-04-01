@@ -44,7 +44,7 @@ function checking(inputLetter) {
     //and start a new puzzle
     if (correctLetter == currentWord.length) {
         document.getElementById("missed-guess").innerHTML = "You win";
-        var path = "assets/images/" + currentWord + ".jpg"
+        var path = "assets/images/" + currentWord + ".jpg";
         image = document.getElementById("guess-image");
         image.src = path;
         guessCount = 0;
