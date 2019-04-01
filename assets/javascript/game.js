@@ -2,7 +2,6 @@
 // setting the default values
 var wordLibrary = ["MADONNA", "STING", "EMINEM", "RIHANNA", "SHAKIRA", "ADELE", "CHER", "SCORPIONS", "FERGIE"]
 var currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
-//currentWord = "VARTAN"
 var answerArray = [];
 var guessCount = 0;
 var guessInput;
@@ -35,22 +34,19 @@ function checking(inputLetter) {
             correctLetter++;
         }
     }
-    //document.getElementById("win-count").innerHTML = correctLetter;
+    //if the guess is incorrect, add to incorrect guess count
     if (letterfound == false) {
         incorrectLetter = incorrectLetter + " " + letter;
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
         guessCount++;
     }
-
+    //if the player makes the correct guess, display singer's image
+    //and start a new puzzle
     if (correctLetter == currentWord.length) {
         document.getElementById("missed-guess").innerHTML = "You win";
-        //var image = document.createElement("img");
-
         var path = "assets/images/" + currentWord + ".jpg"
-        //document.getElementById("lose-count").innerHTML = path;
         image = document.getElementById("guess-image");
         image.src = path;
-
         guessCount = 0;
         correctLetter = 0;
         incorrectLetter = "";
@@ -62,7 +58,7 @@ function checking(inputLetter) {
         currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
         startUp();
     }
-
+    //if player makes more than 5 incorrent guess, start a new puzzle
     if (guessCount > 5) {
         document.getElementById("missed-guess").innerHTML = "You Lose, try another puzzle";
         guessCount = 0;
@@ -76,7 +72,7 @@ function checking(inputLetter) {
         currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
         startUp();
     }
-
+    //display output
     guessInput = answerArray.join(" ");
     document.getElementById("guess-letters").innerHTML = guessInput;
     document.getElementById("missed-guess").innerHTML = "Number of guesses left: " + (5 - guessCount);
@@ -88,13 +84,11 @@ function checking(inputLetter) {
 
 }
 
-// Getting input fro keyboard
+// Getting input from keyboard
 document.onkeyup = function (event) {
 
     var userinput = event.key;
-    //winnerText.textContent = "userinput";
     userinput.toUpperCase;
-
     checking(userinput);
 
 };
