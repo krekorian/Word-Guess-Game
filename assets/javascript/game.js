@@ -45,6 +45,9 @@ function checking(inputLetter) {
     if (correctLetter == currentWord.length) {
         document.getElementById("missed-guess").innerHTML = "You win";
         var path = "assets/images/" + currentWord + ".jpg";
+        const sound = new Audio();
+        sound.src = "assets/audio/" + currentWord + ".mp3"
+        sound.play()
         image = document.getElementById("guess-image");
         image.src = path;
         guessCount = 0;
