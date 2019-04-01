@@ -40,16 +40,30 @@ function checking(inputLetter) {
 
     if (correctLetter == currentWord.length) {
         document.getElementById("missed-guess").innerHTML = "You win";
-        var image = document.createElement("img");
+        //var image = document.createElement("img");
 
         var path = "assets/images/" + currentWord + ".jpg"
         document.getElementById("lose-count").innerHTML = path;
+        image = document.getElementById("guess-image");
         image.src = path;
-        document.getElementById("guess-image").appendChild(image);
+
         guessCount = 0;
         correctLetter = 0;
         incorrectLetter = "";
+        answerArray = [];
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
+        currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
+        startUp();
+    }
+
+    if (guessCount > 5) {
+        document.getElementById("missed-guess").innerHTML = "You Lose, try another puzzle";
+        guessCount = 0;
+        correctLetter = 0;
+        incorrectLetter = "";
+        answerArray = [];
+        document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
+        currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
         startUp();
     }
 
@@ -57,14 +71,7 @@ function checking(inputLetter) {
     document.getElementById("guess-letters").innerHTML = guessInput;
     document.getElementById("missed-guess").innerHTML = "Number of guesses left: " + (5 - guessCount);
 
-    if (guessCount > 5) {
-        document.getElementById("missed-guess").innerHTML = "You Lose, try another puzzle";
-        guessCount = 0;
-        correctLetter = 0;
-        incorrectLetter = "";
-        document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
-        startUp();
-    }
+
 
 
 }
