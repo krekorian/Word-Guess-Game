@@ -10,7 +10,7 @@ var winCount = 0;
 var loseCount = 0;
 var correctLetter = 0;
 
-//Initial content to view
+//Initial content to view and fresh attempt view
 function startUp() {
     for (var i = 0; i < currentWord.length; i++) {
         answerArray[i] = "_";
