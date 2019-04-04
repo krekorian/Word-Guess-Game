@@ -3,6 +3,7 @@
 var wordLibrary = ["MADONNA", "STING", "EMINEM", "RIHANNA", "SHAKIRA", "ADELE", "CHER", "SCORPIONS", "FERGIE"]
 var currentWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
 var answerArray = [];
+var guessed_letter = [];
 var guessCount = 0;
 var guessInput;
 var incorrectLetter = "";
@@ -35,8 +36,13 @@ function checking(inputLetter) {
         }
     }
     //if the guess is incorrect, add to incorrect guess count
-    if (letterfound == false) {
+    //console.log(guessed_letter.includes(letter))
+    //console.log(letterfound)
+    //console.log(letter)
+    //console.log(guessed_letter)
+    if (letterfound == false && guessed_letter.includes(letter) == false) {
         incorrectLetter = incorrectLetter + " " + letter;
+        guessed_letter.push(letter);
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
         guessCount++;
     }
