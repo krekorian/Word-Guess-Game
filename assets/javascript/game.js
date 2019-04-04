@@ -60,6 +60,7 @@ function checking(inputLetter) {
         correctLetter = 0;
         incorrectLetter = "";
         answerArray = [];
+        guessed_letter = [];
         winCount++;
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
         document.getElementById("win-count").innerHTML = "Number of wins " + winCount;
@@ -74,6 +75,7 @@ function checking(inputLetter) {
         correctLetter = 0;
         incorrectLetter = "";
         answerArray = [];
+        guessed_letter = [];
         loseCount++;
         document.getElementById("letter-output").innerHTML = "Letter used" + incorrectLetter;
         document.getElementById("win-count").innerHTML = "Number of wins " + winCount;
